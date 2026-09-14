@@ -1,0 +1,31 @@
+# Azure Region Configuration
+location = "mexicocentral"
+
+# Deployment Environment and Project Naming
+environment  = "dev"
+project_name = "iac-vm"
+
+# Virtual Network & Subnet CIDR
+vnet_address_space      = ["10.0.0.0/16"]
+subnet_address_prefixes = ["10.0.1.0/24"]
+
+# Network Security
+# Restrict this to your trusted CIDR in production environments
+allowed_ssh_source_address_prefix = "*"
+
+# Virtual Machine Specifications
+vm_size        = "Standard_B2s"
+admin_username = "azureuser"
+
+# SSH Key Management
+# Set to null for automatic generation, or paste your OpenSSH public key
+ssh_public_key          = null
+generate_local_key_file = true
+
+# Custom Tags
+custom_tags = {
+  CostCenter  = "Engineering"
+  Terraform   = "true"
+  Deployment  = "Automated"
+}
+
